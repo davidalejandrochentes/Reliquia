@@ -1,0 +1,13 @@
+.nav-page{
+    box-shadow: rgb(100, 149, 237) 10px 10px 20px 3px;
+}
+
+
+.carta-home{
+    box-shadow: rgb(100,149,237) 10px 10px 20px 5px;
+}
+
+.carta-home:hover {
+    background-color:rgb(179, 205, 252) !important;
+    color: black !important;
+}
