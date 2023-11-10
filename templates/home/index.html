@@ -9,63 +9,95 @@
 {% block 'content' %}
 <div class="container">
     
-    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-between align-items-center mt-5">
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease">
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center mt-5">
+        <div class=" col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease">
+            <a class="text-decoration-none text-dark" href="{% url "mantenimiento_home" %}">
             <div class="card-header">Mantenimiento</div>
             <div class="card-body">
             <h5 class="card-title">Visualizar y Controlar</h5>
             <p class="card-text">Control de las maquinarias y equipos para su correcto funcionamiento.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
             <h5 class="card-title">Secondary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Success card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Danger card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Warning card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Info card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
             </div>
+            </a>
         </div>
-        <div class="col rounded-4 card text-dark bg-body-tertiary mb-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="col rounded-4 card bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+            <a type="button" class="text-decoration-none text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-header">Header</div>
             <div class="card-body">
-            <h5 class="card-title">Dark card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of.</p>
+            </div>
+            </a>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Denegado</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                esta app no esta avilitada para su uso
+                </div>
+            </div>
             </div>
         </div>
+
     </div>
 </div>
 {% endblock %}

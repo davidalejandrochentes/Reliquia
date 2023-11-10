@@ -21,14 +21,26 @@
     {% block 'styles' %}{% endblock %}
 </head>
 
-<body>
+<body class="bg-body-secondary">
 
-    <nav class="nav bg-body-tertiary text-uppercase fw-bold nav-page">
+    <nav class="nav text-uppercase fw-bold nav-page">
         <div class="container d-flex justify-content-between align-items-center p-3 text-secondary">   
                 <ol class="breadcrumb mt-auto mb-auto">
                     {% block breadcrumb %}{% endblock %}
                 </ol>
-                <p class="mt-auto mb-auto">sge</p>
+
+                <div class="d-flex">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary b-2" href="{% url "logout" %}">logout</a>
+                    </li>
+                {% else %} 
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary b-2" href="{% url "login" %}">Login</a>
+                    </li> 
+                {% endif %}
+                <a class="nav-link text-secondary b-2" href="">SC&GE</a>
+                </div>
         </div>
     </nav>  
 
