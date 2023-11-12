@@ -1,0 +1,30 @@
+{% extends "layout/base.html" %}
+
+{% block 'title'%} Cronograma de alertas {% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a class="text-secondary"href="{% url "home" %}">Home</a></li>
+    <li class="breadcrumb-item"><a class="text-secondary"href="{% url "mantenimiento_home" %}">Mantenimiento</a></li>
+    <li class="breadcrumb-item"><a class="text-secondary"href="{% url "mantenimiento_area" %}">Area</a></li>
+    <li class="breadcrumb-item"><a class="text-secondary"href="">Cronograma de Alertas</a></li>
+{% endblock  %}
+
+{% block 'content' %}
+{% for alerta in alertas %}
+    <div class="alert alert-danger text-center container rounded-pill mt-5" role="alert">
+        <h3>{{ alerta.area.nombre }}</h3>
+        <p>Días restantes para el mantenimiento: {{ alerta.dias_restantes }}</p>
+        <p>Tamaño del área: {{ alerta.area.tamaño }}</p>
+        <p>Encargado del área: {{ alerta.area.encargado_del_area }}</p>
+        {% if alerta.dias_restantes <= 1000 %}
+            <form method="post" action="{% url 'mantenimiento_alertas' %}">
+                {% csrf_token %}
+                <input type="hidden" name="area_id" value="{{ alerta.area.id }}">
+                <button class="btn btn-warning" type="submit">Mantenimiento realizado</button>
+            </form>
+        {% else %}
+            <p>Mantenimiento no requerido</p>
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock %}
