@@ -24,7 +24,7 @@ def alerta_mantenimiento(request):
     alertas = []
     for area in areas:
         dias_restantes = area.dias_restantes_mantenimiento()
-        if dias_restantes <= 7:
+        if dias_restantes <= 1000:
             alertas.append({
                 'area': area,
                 'dias_restantes': dias_restantes

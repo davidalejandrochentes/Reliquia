@@ -7,6 +7,14 @@
     box-shadow: rgb(100,149,237) 10px 10px 20px 5px;
 }
 
+.alerta-peligro{
+    box-shadow: rgb(223, 57, 57) 10px 10px 20px 5px;
+}
+
+.alerta-sin-peligro{
+    box-shadow: rgb(97, 240, 180) 10px 10px 20px 5px;
+}
+
 .carta-home:hover {
     background-color:rgb(188, 208, 247) !important;
     color: black !important;

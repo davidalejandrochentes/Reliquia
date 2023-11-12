@@ -9,22 +9,46 @@
     <li class="breadcrumb-item"><a class="text-secondary"href="">Cronograma de Alertas</a></li>
 {% endblock  %}
 
+
 {% block 'content' %}
+<div class="container mt-5">
+
 {% for alerta in alertas %}
-    <div class="alert alert-danger text-center container rounded-pill mt-5" role="alert">
+
+    {% if alerta.dias_restantes < 7 %}
+        <div class="alert alert-danger text-center rounded-pill mt-3 alerta-peligro" role="alert">
+            <h3>{{ alerta.area.nombre }}</h3>
+            <p>Días restantes para el mantenimiento: {{ alerta.dias_restantes }}</p>
+            <p>Tipo de mantenimiento: {{ alerta.area.tipo_de_mantenimiento }}</p>
+            <p>Encargado del área: {{ alerta.area.encargado }}</p>
+            {% if alerta.dias_restantes <= 1000000 %}
+                <form method="post" action="{% url 'mantenimiento_alertas' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="area_id" value="{{ alerta.area.id }}">
+                    <button class="btn btn-success" type="submit">Mantenimiento realizado</button>
+                </form>
+            {% else %}
+                <p>Mantenimiento no requerido</p> 
+            {% endif %}
+        </div>
+    {% else %}
+    <div class="alert alert-success text-center rounded-pill mt-3 alerta-sin-peligro" role="alert">
         <h3>{{ alerta.area.nombre }}</h3>
         <p>Días restantes para el mantenimiento: {{ alerta.dias_restantes }}</p>
-        <p>Tamaño del área: {{ alerta.area.tamaño }}</p>
-        <p>Encargado del área: {{ alerta.area.encargado_del_area }}</p>
-        {% if alerta.dias_restantes <= 1000 %}
+        <p>Tipo de mantenimiento: {{ alerta.area.tipo_de_mantenimiento }}</p>
+        <p>Encargado del área: {{ alerta.area.encargado }}</p>
+        {% if alerta.dias_restantes <= 1000000 %}
             <form method="post" action="{% url 'mantenimiento_alertas' %}">
                 {% csrf_token %}
                 <input type="hidden" name="area_id" value="{{ alerta.area.id }}">
-                <button class="btn btn-warning" type="submit">Mantenimiento realizado</button>
+                <button class="btn btn-success" type="submit">Mantenimiento realizado</button>
             </form>
         {% else %}
-            <p>Mantenimiento no requerido</p>
+            <p>Mantenimiento no requerido</p> 
         {% endif %}
-    </div>
+    </div>    
+    {% endif %}
+
 {% endfor %}
+</div>
 {% endblock %}
