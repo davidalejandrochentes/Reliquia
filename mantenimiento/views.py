@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from datetime import date
 from .models import Area
+from django.http import HttpResponse
 
 @login_required
 def mantenimiento(request):
@@ -19,8 +20,7 @@ def alerta_mantenimiento(request):
         area.fecha_ultimo_mantenimiento = date.today()
         area.save()
         return redirect('mantenimiento_alertas')
-
-    areas = Area.objects.all()
+    areas = Area.objects.filter(nombre__icontains=request.GET.get('search', ''))
     alertas = []
     for area in areas:
         dias_restantes = area.dias_restantes_mantenimiento()
@@ -31,3 +31,7 @@ def alerta_mantenimiento(request):
             })
     alertas_ordenadas = sorted(alertas, key=lambda x: x['dias_restantes'])
     return render(request, 'mantenimiento/alerta_mantenimiento.html', {'alertas': alertas_ordenadas})
+
+@login_required
+def vista(request):
+    return HttpResponse("todo bien")
