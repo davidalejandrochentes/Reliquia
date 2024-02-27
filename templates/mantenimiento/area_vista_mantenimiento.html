@@ -1,0 +1,73 @@
+{% extends "layout/base.html" %}
+
+{% block 'title'%} Vista de Areas {% endblock %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a class="text-secondary"href="{% url "home" %}">Home</a></li>
+<li class="breadcrumb-item"><a class="text-secondary"href="{% url "mantenimiento_home" %}">Mantenimiento</a></li>
+<li class="breadcrumb-item"><a class="text-secondary"href="{% url "mantenimiento_area" %}">Area</a></li>
+<li class="breadcrumb-item"><a class="text-secondary"href="{% url "area_vista_mantenimiento" %}">Vista de Areas</a></li>
+{% endblock  %}
+
+{% block 'content' %}
+<div class="container mt-5">
+
+    <form class="d-flex container" role="search" action="{% url "area_vista_mantenimiento" %}" method='GET'>
+        <input class="form-control me-2" id="search-input" name="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">buscar</button>
+    </form>
+
+    <div class="justify-content-center align-items-center d-flex">
+        <button type="button" class="btn btn-secondary mb-4 mt-3 text-center">Crear nueva area</button>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center align-items-center">
+    {% for area in areas %}
+    <div class="col rounded-4 card text-dark bg-body-tertiary m-3 carta-home" style="max-width: 18rem; transition: background-color 0.5s ease;">
+        <div class="card-header">{{area.nombre }}</div>
+        <div class="card-body">
+        <h5 class="card-title">Tamaño: {{ area.tamaño }}</h5>
+        <p class="card-text m-0"><b>Encargado:</b> {{ area.encargado }}</p>
+        <p class="card-text m-0"><b>Tipo de área:</b>{% if area.tipo_de_área == None%} No definida {% else %} {{ area.tipo_de_área }}{% endif %}</p>
+        
+        <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-{{ forloop.counter }}-{{ area.id }}">
+            Detalles
+        </button>
+            <div class="modal fade" id="modal-{{ forloop.counter }}-{{ area.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ area.nombre }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><b>Nombre:</b> {{ area.nombre }}</p>
+                        <p><b>Tamaño:</b> {{ area.tamaño }}</p>
+                        <p><b>Encargado:</b> {{ area.encargado }}</p>
+                        <p><b>Teléfono del encargado:</b> {{ area.teléfono_encargado }}</p>
+                        <p><b>Descripción:</b> {{ area.descripción }}</p>
+                        <p><b>Ubicación:</b> {{ area.ubicación }}</p>
+                        <p><b>Capacidad:</b> {{ area.capacidad }}</p>
+                        <p><b>Tipo de área:</b> {{ area.tipo_de_área }}</p>
+                        <p><b>Estado de ocupación :</b> {{ area.estado_de_ocupación }}</p>
+                        <p><b>Equipamiento:</b> {{ area.equipamiento }}</p>
+                        <p><b>Tipo de mantenimiento:</b> {{ area.tipo_de_mantenimiento }}</p>
+                        <p><b>Fecha ultimo mantenimiento :</b> {{ area.fecha_ultimo_mantenimiento }}</p>
+                        <p class="mb-0"><b>Intervalo de mantenimiento:</b> {{ area.intervalo_mantenimiento }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Editar</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    
+    
+</div>
+{% endblock %}
