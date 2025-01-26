@@ -27,15 +27,11 @@ python manage.py runserver
 ```bash
 python manage.py help
 ```
-2. Ver ayuda de un comando
-```bash
-python manage.py help <comando>
-```
-3. Crear un superusuario
+2. Crear un superusuario
 ```bash
 python manage.py createsuperuser
 ```
-4. Acceder a la aplicación
+3. Acceder a la aplicación
 [http://localhost:8000](http://localhost:8000)
 
 ## Licencia
