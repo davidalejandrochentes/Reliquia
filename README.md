@@ -38,4 +38,6 @@ python manage.py createsuperuser
 
 MIT
 
+## Imágenes
+
 ![alt text](<imagenes-readme/Captura desde 2025-01-26 09-31-10.png>) ![alt text](<imagenes-readme/Captura desde 2025-01-26 09-32-17.png>) ![alt text](<imagenes-readme/Captura desde 2025-01-26 09-32-48.png>) ![alt text](<imagenes-readme/Captura desde 2025-01-26 09-33-06.png>) ![alt text](<imagenes-readme/Captura desde 2025-01-26 09-33-15.png>) ![alt text](<imagenes-readme/Captura desde 2025-01-26 09-33-25.png>)
